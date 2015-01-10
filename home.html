@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+   <!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="js/tagcanvas.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+ var options = {
+  textColour: '#000',
+   outlineColour : '#ff9999',
+  textHeight: 20,
+  depth: 0.99
+ };
+
+  window.onload = function() {
+    try {
+    	
+      TagCanvas.Start('myCanvas','',options);
+    } catch(e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+  };
+ </script>
+
+
+    <title>jQuery Tag Cloud</title>
+  </head>
+  <body>
+    
+    <div id="myCanvasContainer">
+ <canvas width="300" height="300" id="myCanvas">
+  <p>Anything in here will be replaced on browsers that support the canvas element</p>
+  <ul>
+   <li><a href="http://www.google.com" target="_blank">Java</a></li>
+   <li><a href="/fish">C#</a></li>
+   <li><a href="/chips">.Net</a></li>
+   <li><a href="/salt">Facebook</a></li>
+   <li><a href="/vinegar">twitter</a></li>
+  </ul>
+ </canvas>
+</div>
+
+
+  </body>
+</html>
