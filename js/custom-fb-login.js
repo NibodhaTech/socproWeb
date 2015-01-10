@@ -6,8 +6,9 @@
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
+
+    	window.location.href = "http://stackoverflow.com";
+    	
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -25,9 +26,9 @@
   // code below.
   function checkLoginState() {
     console.log("checking log");
-    // FB.getLoginStatus(function(response) {
-    //   statusChangeCallback(response);
-    // });
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
   }
   
 
@@ -68,6 +69,31 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {

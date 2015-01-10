@@ -28,10 +28,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+        <!-- Custom FB login codes -->
+    <script src="js/custom-fb-login.js"></script>
 
 </head>
 
 <body id="page-top" class="index">
+
+    <div id="fb-root"></div>
+<!-- <script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -59,9 +73,9 @@
                     <li class="page-scroll">
                         <a href="" onlogin="checkLoginState();">
 
-                    <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false">
-                        FB Login
-                    </div>
+            <!-- FB Login-->
+            <fb:login-button scope="public_profile,email,read_stream" onlogin="checkLoginState();">
+            </fb:login-button>
                         </a>
                     </li>
                     <li class="page-scroll">
@@ -543,19 +557,6 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
 
-    <!-- Custom FB login codes -->
-    <script src="js/custom-fb-login.js"></script>
-
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=776198329083699&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-</body>
+    </body>
 
 </html>
