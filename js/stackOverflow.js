@@ -72,7 +72,6 @@ xmlhttp3.send();
 function extractData3(){
 
 jsonDataTag = JSON.parse(jsonData3);
-alert("length "+ jsonDataTag.items.length);
   var tagLink = ""; 
   for(var i = 0; i < jsonDataTag.items.length; i++){
 	  
@@ -80,7 +79,6 @@ alert("length "+ jsonDataTag.items.length);
 	  
   }
   document.getElementById('stackOverFlowTags').innerHTML = tagLink;
-  alert(document.getElementById('stackOverFlowTags').innerHTML);
   loadCanvas();
 
 }
