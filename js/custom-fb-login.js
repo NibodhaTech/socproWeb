@@ -7,7 +7,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
 
-    	window.location.href = "http://stackoverflow.com";
+    	window.location.href = "home.html";
     	
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
