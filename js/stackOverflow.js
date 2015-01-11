@@ -37,8 +37,9 @@ function extractReputations(){
 	  userId = jsonData0.items[0].user_id;
 	  
 	  
-	  //loadTopQuestion();
 	  loadTopTags();
+	  getBlogCentimentalVal();
+	  loadBlog();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,3 +83,84 @@ jsonDataTag = JSON.parse(jsonData3);
   loadCanvas();
 
 }
+
+//////////////////////////////////////////////////////////////////////////////
+
+function getBlogCentimentalVal()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    var responseData=xmlhttp.responseText;
+   
+  // alert(responseData.blogs[1]);
+   centimentValue(responseData);
+    }
+  }
+xmlhttp.open("GET","https://nibodha-nbdha-v1.p.mashape.com/socpro/blog/%7Brad.rads@gmail.com%7D/sentiment",true);
+xmlhttp.setRequestHeader("X-Mashape-Key","MFWxp6etOCmshXYj5WX2J3G67UZrp1FKhgSjsnWYdvgfy2XqFz");
+xmlhttp.send();
+}
+
+
+ function centimentValue(responseData){
+    jsonData = JSON.parse(responseData);
+
+postPercentage = jsonData.posPercent;
+negaPercentage = jsonData.negPercent;
+midPercentage = jsonData.midPercent;
+
+ $("#postive").html(postPercentage);
+ $("#middle").html(midPercentage);
+ }
+ 
+ /////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+
+ function loadBlog()
+ {
+ var xmlhttp;
+ if (window.XMLHttpRequest)
+   {// code for IE7+, Firefox, Chrome, Opera, Safari
+   xmlhttp=new XMLHttpRequest();
+   }
+ else
+   {// code for IE6, IE5
+   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+   }
+ xmlhttp.onreadystatechange=function()
+   {
+   if (xmlhttp.readyState==4 && xmlhttp.status==200)
+     {
+     var responseData=xmlhttp.responseText;
+    
+   // alert(responseData.blogs[1]);
+    extractDataLoadBlog(responseData);
+     }
+   }
+ xmlhttp.open("GET","https://nibodha-nbdha-v1.p.mashape.com/socpro/blogs/rad.rads@gmail.com",true);
+ xmlhttp.setRequestHeader("X-Mashape-Key","MFWxp6etOCmshXYj5WX2J3G67UZrp1FKhgSjsnWYdvgfy2XqFz");
+ xmlhttp.send();
+ }
+
+
+  function extractDataLoadBlog(responseData){
+     jsonData = JSON.parse(responseData);
+
+
+  $("#blog111").html(jsonData.blogs[0]);
+  $("#blog222").html(jsonData.blogs[1]);
+  }
+

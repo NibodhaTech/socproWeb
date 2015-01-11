@@ -58,6 +58,14 @@ xmlhttp.send("apiKey=15779a611f991d97&email=rad.rads@gmail.com");
 function extractJsonData(jsonData){
 jsonFullCont = JSON.parse(jsonData);
 
+var userName = jsonFullCont.contactInfo.givenName;
+var webSites = jsonFullCont.contactInfo.websites[0].url;
+var organization = jsonFullCont.organizations[0].name;
+
+document.getElementById('userNameVal').innerHTML = userName;
+document.getElementById('userWebSiteVal').innerHTML = webSites;
+document.getElementById('userOrgVal').innerHTML = organization;
+
 var imgData = "";
 for(var i = 0; i < jsonFullCont.photos.length; i++) {
     var photoUrl = jsonFullCont.photos[i].url;
@@ -104,6 +112,40 @@ $(document).ready(function(){
 
 </script>
     
+<style type="text/css">
+  #myDiv1{
+    width: 200px;
+    height: 200px;
+    background-image: url("img/green.png");
+  }
+
+  #myDiv2{
+    width: 200px;
+    height: 200px;
+    background-image: url("img/yellow.png");
+  }
+
+   #myDiv3{
+    width: 200px;
+    height: 200px;
+    background-image: url("img/grey.jpg");
+  }
+
+  #postive, #middle, #negative{
+padding-top: 30px;
+color: #FFFFFF;
+font-size: 650%;
+text-align: center;
+  }
+
+  .full{
+    float: left;
+  }
+  td{
+    padding-right: 30px;
+  }
+
+</style>
     
     
 </head>
@@ -172,6 +214,33 @@ $(document).ready(function(){
                     <hr class="star-primary">
                 </div>
             </div>
+            <div class="row">
+            	<div class="row">
+                	<div class="col-sm-3 col-sm-offset-2">
+					<h4>Name  : </h4>
+					</div>
+					<div class="col-sm-6">
+					<p id="userNameVal" ></p>
+					</div>
+            	</div>
+            	<div class="row">
+                	<div class="col-sm-3 col-sm-offset-2">
+					<h4>Website  : </h4>
+					</div>
+                	<div class="col-sm-6">
+					<p id="userWebSiteVal" ></p>
+					</div>					
+            	</div>            	
+            	<div class="row">
+                	<div class="col-sm-3 col-sm-offset-2">
+					<h4>Organization  : </h4>
+					</div>
+                	<div class="col-sm-6">
+					<p id="userOrgVal"></p>
+					</div>					
+            	</div>            	
+            </div>
+            <br />
             <div class="row">
                 <div class="col-sm-12 portfolio-item">
 					<div id="images" style="text-align: center;"></div>
@@ -253,6 +322,59 @@ $(document).ready(function(){
                             </div>                                                        
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+        <section class="success" id="techStack">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Blogger Sentimental Analysis</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+<table style="margin: auto;">
+  <tr>
+    <td>
+      <div id="myDiv1" class="full">
+        <div id="postive">0</div>
+      </div>
+    </td>
+    <td>
+      <div id="myDiv2" class="full">
+        <div id="middle">0</div>
+      </div>
+    </td>
+     <td>
+      <div id="myDiv3" class="full">
+        <div id="negative">0</div>
+      </div>
+    </td>
+    </tr>
+</table>
+<br /><br />
+
+<div class="well">
+
+<div class="row" style="color: black; font-size: x-large;">
+	<div class="col-md-offset-2">Blog Posts</div>
+	<hr />
+</div>
+	
+<div class="row" style="color: black; font-size: large;">
+	<div class="col-md-12 col-md-offset-1" id="blog111"></div>
+</div>
+<div class="row" style="color: black; font-size: large;">
+	<div class="col-md-12 col-md-offset-1" id="blog222"></div>
+</div>
+</div>
+
                 </div>
             </div>
         </div>
