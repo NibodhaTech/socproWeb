@@ -107,7 +107,7 @@ xmlhttp.onreadystatechange=function()
    centimentValue(responseData);
     }
   }
-xmlhttp.open("GET","https://nibodha-nbdha-v1.p.mashape.com/socpro/blog/%7Brad.rads@gmail.com%7D/sentiment",true);
+xmlhttp.open("GET","http://ec2-54-68-164-11.us-west-2.compute.amazonaws.com:8080/socpro/blog/email/sentiment",true);
 xmlhttp.setRequestHeader("X-Mashape-Key","MFWxp6etOCmshXYj5WX2J3G67UZrp1FKhgSjsnWYdvgfy2XqFz");
 xmlhttp.send();
 }
@@ -150,7 +150,7 @@ midPercentage = jsonData.midPercent;
     extractDataLoadBlog(responseData);
      }
    }
- xmlhttp.open("GET","https://nibodha-nbdha-v1.p.mashape.com/socpro/blogs/rad.rads@gmail.com",true);
+ xmlhttp.open("GET","http://ec2-54-68-164-11.us-west-2.compute.amazonaws.com:8080/socpro/blogs/rad.rads@gmail.com",true);
  xmlhttp.setRequestHeader("X-Mashape-Key","MFWxp6etOCmshXYj5WX2J3G67UZrp1FKhgSjsnWYdvgfy2XqFz");
  xmlhttp.send();
  }
