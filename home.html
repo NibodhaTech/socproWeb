@@ -26,128 +26,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-function fullcontactData()
-{
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    jsonData=xmlhttp.responseText;
-    extractJsonData(jsonData);
-    }
-  }
-xmlhttp.open("GET","https://fullcontact-fullcontact.p.mashape.com/v2/person.json?apiKey=15779a611f991d97&email=rad.rads@gmail.com",true);
-xmlhttp.setRequestHeader("X-Mashape-Key","VssIjowCahmshHMZUAD30M7T993dp1OJPrZjsn4pUVbA65Exql");
-xmlhttp.send("apiKey=15779a611f991d97&email=rad.rads@gmail.com");
-}
-
-function extractJsonData(jsonData){
-jsonFullCont = JSON.parse(jsonData);
-
-var userName = jsonFullCont.contactInfo.givenName;
-var webSites = jsonFullCont.contactInfo.websites[0].url;
-var organization = jsonFullCont.organizations[0].name;
-
-document.getElementById('userNameVal').innerHTML = userName;
-document.getElementById('userWebSiteVal').innerHTML = webSites;
-document.getElementById('userOrgVal').innerHTML = organization;
-
-var imgData = "";
-for(var i = 0; i < jsonFullCont.photos.length; i++) {
-    var photoUrl = jsonFullCont.photos[i].url;
-    
-    imgData = imgData + '<img src='+photoUrl+'>';
-    console.log(photoUrl);
-}
-$("#images").html(imgData);
-
-}
-
-</script>
-<script type="text/javascript">
- var options = {
-  textColour: '#000',
-   outlineColour : '#ff9999',
-  textHeight: 20,
-  depth: 0.99,
-  zoom : 1.7
- };
-
- //  window.onload = function() {
-
-  function loadCanvas() {
-    try {
-    	
-      TagCanvas.Start('myCanvas','',options);
-    } catch(e) {
-      // something went wrong, hide the canvas container
-      document.getElementById('myCanvasContainer').style.display = 'none';
-    }
-  };
- </script>
-<script src="js/tagcanvas.js" type="text/javascript"></script>
-<script src="js/stackOverflow.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	fullcontactData();
-	loadUserData('benoy');
-});
-</script>
-    
-<style type="text/css">
-  #myDiv1{
-    width: 200px;
-    height: 200px;
-    background-image: url("img/green.png");
-  }
-
-  #myDiv2{
-    width: 200px;
-    height: 200px;
-    background-image: url("img/yellow.png");
-  }
-
-   #myDiv3{
-    width: 200px;
-    height: 200px;
-    background-image: url("img/grey.jpg");
-  }
-
-  #postive, #middle, #negative{
-padding-top: 30px;
-color: #FFFFFF;
-font-size: 650%;
-text-align: center;
-  }
-
-  .full{
-    float: left;
-  }
-  td{
-    padding-right: 30px;
-  }
-
-</style>
-    
-    
 </head>
 
 <body id="page-top" class="index">
-
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -159,7 +40,10 @@ text-align: center;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">SOC PRO</a>
+                <a class="navbar-brand row" href="#page-top">
+                	<div class="col-md-3"><img src="img/home/socprologo2.jpg" style="height: 48px;width: 48px;" /></div>
+                	<div class="col-md-6">SOC PRO</div>
+               	</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -186,15 +70,19 @@ text-align: center;
 
     <!-- Header -->
     <header>
-        <div class="container" style="margin-top: 5px;">
-            <div class="row">
+        <div class="container" >
+        	<div class="row">
+<!--            <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/socprologo.jpg" alt="" style="height: 80%; width: 80%">
+                    <img class="img-responsive" src="img/home/socprologo.jpg" alt="" style="height: 80%; width: 80%">
                     <div class="intro-text">
                     </div>
                 </div>
             </div>
-        </div>
+-->           
+				<br />
+			</div> 
+		</div>
     </header>
 
     <!-- Portfolio Grid Section -->
@@ -271,7 +159,7 @@ text-align: center;
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2><img src="img/stackLogo.png" style="width: 35%;"/></h2>
+                    <h2><img src="img/home/stackLogo.png" style="width: 35%;"/></h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -284,16 +172,16 @@ text-align: center;
 	                                	<B>Reputations</B> &nbsp; <span id="reputation" style="font-size: xx-large;">
 	                                </div>
                                 	<div class="col-lg-3" style="height: 100px;text-align: center;">
-                                		<img src="img/gold.png" style="height: 100px;" />
+                                		<img src="img/home/gold.png" style="height: 100px;" />
                                 			<p style="font-size: xx-large;"><span id="gold" ></p>
                                 		
 	                                </div>
 	                                <div class="col-lg-3" style="height: 100px;text-align: center;">
-	                                	<img src="img/silver.png" style="height: 100px;" />
+	                                	<img src="img/home/silver.png" style="height: 100px;" />
 	                                		<p style="font-size: xx-large;"><span id="silver" ></p>
 	                                </div>
 	                                <div class="col-lg-3" style="height: 100px;text-align: center;">
-	                                	<img src="img/bronze.png" style="height: 100px;" />
+	                                	<img src="img/home/bronze.png" style="height: 100px;" />
 	                                		<p style="font-size: xx-large;"><span id="bronze"></p>
 	                                </div>
                                 </div>
@@ -651,22 +539,34 @@ text-align: center;
     </div>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/classie.js"></script>
+    <script type="text/javascript" src="js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script type="text/javascript" src="js/freelancer.js"></script>
+    
+    
+	<script type="text/javascript" src="custom-api-calls.js"></script>
+	<script type="text/javascript" src="js/tagcanvas.js" ></script>
+	<script type="text/javascript" src="js/stackOverflow.js" ></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	fullcontactData();
+	loadUserData('benoy');
+});
+</script>
 
     </body>
 
